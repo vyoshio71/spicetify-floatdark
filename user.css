@@ -1,0 +1,218 @@
+/* ================================================
+   FloatDark — Spicetify Theme
+   Dark/Light com player flutuante
+   ================================================ */
+
+:root {
+  --float-radius: 18px;
+  --card-radius: 10px;
+  --float-margin: 10px;
+  --transition: 0.25s ease;
+  /* Controlada pelo theme.js conforme o esquema ativo */
+  --shadow-strength: 0.6;
+}
+
+/* ================================================
+   TRANSIÇÃO SUAVE AO TROCAR TEMA
+   ================================================ */
+.Root__main-view,
+.Root__nav-bar,
+.Root__now-playing-bar,
+.main-card-card,
+.main-topBar-container {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease !important;
+}
+
+/* ================================================
+   LAYOUT BASE
+   ================================================ */
+
+.Root__main-view {
+  background-color: var(--spice-main) !important;
+}
+
+.Root__nav-bar,
+.nav-bar {
+  background-color: var(--spice-sidebar) !important;
+}
+
+.main-topBar-container {
+  background-color: transparent !important;
+}
+
+/* ================================================
+   PLAYER FLUTUANTE
+   ================================================ */
+
+.Root__now-playing-bar {
+  background-color: var(--spice-player) !important;
+  border-radius: var(--float-radius) !important;
+  margin: 0 var(--float-margin) var(--float-margin) var(--float-margin) !important;
+
+  box-shadow:
+    0 2px 8px  rgba(var(--spice-rgb-shadow), 0.3),
+    0 8px 32px rgba(var(--spice-rgb-shadow), var(--shadow-strength)),
+    0 0 0 1px  rgba(var(--spice-rgb-shadow), 0.08) !important;
+
+  border: 1px solid rgba(var(--spice-rgb-shadow), 0.08) !important;
+}
+
+.Root__now-playing-bar:hover {
+  box-shadow:
+    0 4px 16px rgba(var(--spice-rgb-shadow), 0.35),
+    0 12px 48px rgba(var(--spice-rgb-shadow), calc(var(--shadow-strength) + 0.1)),
+    0 0 0 1px  rgba(var(--spice-rgb-shadow), 0.1) !important;
+}
+
+/* ================================================
+   CARDS
+   ================================================ */
+
+.main-card-card {
+  background-color: var(--spice-card) !important;
+  border-radius: var(--card-radius) !important;
+  transition:
+    background-color var(--transition),
+    transform var(--transition) !important;
+}
+
+.main-card-card:hover {
+  background-color: color-mix(in srgb, var(--spice-card) 70%, var(--spice-text) 5%) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ================================================
+   SIDEBAR
+   ================================================ */
+
+.main-rootlist-rootlistItemLink--active,
+.main-rootlist-rootlistItemLink--active:hover {
+  background-color: var(--spice-misc) !important;
+  border-radius: 8px !important;
+}
+
+.main-rootlist-rootlistItemLink:hover {
+  background-color: rgba(var(--spice-rgb-misc), 0.5) !important;
+  border-radius: 8px !important;
+}
+
+/* ================================================
+   BOTÕES
+   ================================================ */
+
+.main-playButton-PlayButton {
+  background-color: var(--spice-button) !important;
+  transition: transform var(--transition), background-color var(--transition) !important;
+}
+
+.main-playButton-PlayButton:hover {
+  background-color: var(--spice-button-active) !important;
+  transform: scale(1.06) !important;
+}
+
+.main-shuffleButton-button[aria-checked="true"],
+.main-repeatButton-button[aria-checked="true"] {
+  color: var(--spice-button) !important;
+}
+
+/* ================================================
+   PROGRESS BAR
+   ================================================ */
+
+.playback-progressbar-seek-bar__fill {
+  background-color: var(--spice-button) !important;
+  border-radius: 4px !important;
+}
+
+.volume-bar__fill {
+  background-color: var(--spice-button) !important;
+}
+
+/* ================================================
+   TIPOGRAFIA
+   ================================================ */
+
+.main-trackInfo-name {
+  color: var(--spice-text) !important;
+}
+
+.main-trackInfo-artists a,
+.main-trackInfo-artists span {
+  color: var(--spice-subtext) !important;
+  transition: color var(--transition) !important;
+}
+
+.main-trackInfo-artists a:hover {
+  color: var(--spice-text) !important;
+}
+
+.playback-bar__progress-time {
+  color: var(--spice-subtext) !important;
+  font-size: 11px !important;
+}
+
+/* ================================================
+   SCROLLBAR
+   ================================================ */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--spice-misc);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* ================================================
+   MODAIS E CONTEXT MENU
+   ================================================ */
+
+.GenericModal {
+  background-color: var(--spice-card) !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(var(--spice-rgb-shadow), 0.1) !important;
+}
+
+.main-contextMenu-menu {
+  background-color: var(--spice-card) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(var(--spice-rgb-shadow), 0.1) !important;
+  box-shadow: 0 8px 32px rgba(var(--spice-rgb-shadow), 0.3) !important;
+}
+
+.main-contextMenu-menuItem:hover {
+  background-color: var(--spice-misc) !important;
+  border-radius: 6px !important;
+}
+
+/* ================================================
+   BOTÃO DE TOGGLE (injetado pelo theme.js)
+   ================================================ */
+
+#floatdark-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+  margin-right: 4px;
+  color: var(--spice-subtext);
+}
+
+#floatdark-toggle:hover {
+  background: rgba(var(--spice-rgb-misc), 0.8);
+  color: var(--spice-text);
+}

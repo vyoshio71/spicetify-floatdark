@@ -1,0 +1,19 @@
+{
+  "name": "FloatDark",
+  "description": "Tema dark/light com player flutuante e bordas arredondadas. Alterne entre os modos pelo botão 🌙/☀️ no topbar.",
+  "preview": "preview.png",
+  "readme": "README.md",
+  "user_css": "user.css",
+  "color_schemes": {
+    "dark": "color.ini",
+    "light": "color.ini"
+  },
+  "include": ["theme.js"],
+  "authors": [
+    {
+      "name": "vyoshio71",
+      "url": "https://github.com/vyoshio71"
+    }
+  ],
+  "tags": ["dark", "light", "floating", "rounded", "toggle"]
+}
